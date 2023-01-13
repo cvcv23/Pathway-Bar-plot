@@ -1,0 +1,5 @@
+p1 <- ggplot(data= reactome_ego_1_3_top10s, aes(x= reorder(Description, +padj), y=reactome_ego_1_3_top10s$padj, fill=reactome_ego_1_3_top10s$padj)) + geom_bar(stat="identity") + coord_flip() + theme_minimal() + geom_text(aes(label=reactome_ego_1_3_top10s$Count), position=position_dodge(width=0.9), hjust=-0.5)
+> p2 <- p1 + scale_fill_gradient(low = "orange", high = "red")
+> p3 <- p2 + labs(y = "-log10 padj", x="")
+> p4 <- p3 + guides(fill=guide_legend(title="-log10 padj"))
+> p4
